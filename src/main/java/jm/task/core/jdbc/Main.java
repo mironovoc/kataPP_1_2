@@ -1,7 +1,12 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.util.Util;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class Main {
-    public static void main(String[] args) {
-        // реализуйте алгоритм здесь
+    public static void main(String[] args) throws SQLException {
+        Connection conn = Util.getConnection();
     }
 }
