@@ -9,7 +9,7 @@ public class Util {
         Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/kata1",
                 "root",
-                "90tulugaA."
+                "123456"
         );
         return conn;
     }
