@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
+
     public UserDaoJDBCImpl() {
 
     }
@@ -18,8 +19,8 @@ public class UserDaoJDBCImpl implements UserDao {
                 "name VARCHAR(30), " +
                 "lastName VARCHAR(30), " +
                 "age TINYINT)";
-        try(Connection con = Util.getConnection();
-            Statement stmt = con.createStatement()) {
+        try (Connection con = Util.getConnection();
+             Statement stmt = con.createStatement()) {
             stmt.execute(query);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -29,7 +30,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void dropUsersTable() {
         String query = "DROP TABLE IF EXISTS Users";
         try (Connection con = Util.getConnection();
-            Statement stmt = con.createStatement()){
+             Statement stmt = con.createStatement()) {
             stmt.execute(query);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -40,7 +41,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String query = "INSERT INTO Users (name, lastName, age) " +
                 "VALUES (?, ?, ?)";
         try (Connection con = Util.getConnection();
-            PreparedStatement stmt = con.prepareStatement(query)) {
+             PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, name);
             stmt.setString(2, lastName);
             stmt.setByte(3, age);
@@ -53,7 +54,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void removeUserById(long id) {
         String query = "DELETE FROM Users WHERE id = ?";
         try (Connection con = Util.getConnection();
-        PreparedStatement stmt = con.prepareStatement(query)) {
+             PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setLong(1, id);
             stmt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {

@@ -14,10 +14,10 @@ public class Main {
         userService.createUsersTable();
 
         // 2.Добавляем 4User(ов) в таблицу с данными.
-        userService.saveUser("Andrey", "Andreevich", (byte)35);
-        userService.saveUser("Ivan", "Ivanov", (byte)16);
-        userService.saveUser("Ivan", "Ivanov", (byte)25);
-        userService.saveUser("Василий", "Васильев", (byte)30);
+        userService.saveUser("Andrey", "Andreevich", (byte) 35);
+        userService.saveUser("Ivan", "Ivanov", (byte) 16);
+        userService.saveUser("Ivan", "Ivanov", (byte) 25);
+        userService.saveUser("Василий", "Васильев", (byte) 30);
 
         // 3. Получение всех User из базы.
         List<User> list = userService.getAllUsers();
