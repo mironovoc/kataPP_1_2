@@ -77,7 +77,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 users.add(new User(id, name, lastName, age));
             }
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException("Error fetching all users", e);
+            throw new RuntimeException(e);
         }
         return users;
     }
@@ -87,7 +87,7 @@ public class UserDaoJDBCImpl implements UserDao {
              Statement stmt = con.createStatement()) {
             stmt.execute("DELETE FROM Users");
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException("Error cleaning users table", e);
+            throw new RuntimeException(e);
         }
     }
 }
